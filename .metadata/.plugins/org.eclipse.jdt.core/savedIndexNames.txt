@@ -1,0 +1,2 @@
+INDEX VERSION 1.129+C:\Users\Miguel Ángel\Desktop\Git_SourceTree\Eclipse_DAM\.metadata\.plugins\org.eclipse.jdt.core
+1967147400.index

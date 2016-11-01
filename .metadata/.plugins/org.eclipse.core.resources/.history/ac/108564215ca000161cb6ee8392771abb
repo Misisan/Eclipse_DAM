@@ -1,0 +1,145 @@
+package inicio;
+
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class aad_01g {
+
+	public static void main(String[] args) {
+		
+		//Definición e inicialización de variables
+		libro lib = new libro();
+		Scanner lectorTecla = new Scanner(System.in);
+		int tecla=99;
+		
+		//Entramos en el menú
+		while (tecla!=0){
+			System.out.println("1: Para guardar"+"\n"+"2: Para recuperar"+"\n"+"0: Para salir");
+			
+			//Evitamos errores por no itroducir integers
+			try{
+				tecla=Integer.valueOf(lectorTecla.next());
+			}catch(Exception e){
+				tecla=99;
+			}
+			
+			//Analizamos la respuesta
+			switch(tecla){
+				case 0:
+					System.out.println("Hasta luego.");
+					break;
+				case 1:
+					//Recogemos los datos para el guardado
+					try{
+						System.out.println("Has elegido guardar."+"\n"+"Dime los datos del libro:");
+						System.out.println("Dime el título:");
+						String titulo = lectorTecla.next();
+						System.out.println("Dime el autor:");
+						String autor = lectorTecla.next();
+						System.out.println("Dime el año de publicación:");
+						int anyo = Integer.valueOf(lectorTecla.next());
+						while(String.valueOf(anyo).length()!=4){
+							System.out.println("Introduce un año correcto con 4 cifras:");
+							anyo = Integer.valueOf(lectorTecla.next());
+						}
+						System.out.println("Dime el editor:");
+						String editor = lectorTecla.next();
+						System.out.println("Dime el número de páginas:");
+						int numPag = Integer.valueOf(lectorTecla.next());
+						
+						//Rellenamos los datos del objeto LIBRO
+						lib.crearLibro(titulo, autor, anyo, editor, numPag);
+						lib.print();
+						
+						//Guardamos el archivo
+						guardar(lib, titulo+" "+autor+".libro");
+						
+						
+					}catch (Exception e){
+						System.out.println("Has introducido algún dato de forma incorrecta.");
+					}
+					
+					break;
+				case 2:
+					//Recogemos los datos para recuperar
+					System.out.println("Has elegido recuperar un libro guardado."+"\n"+"Dime los datos del libro:");
+					System.out.println("Dime el título:");
+					String titulo = lectorTecla.next();
+					System.out.println("Dime el autor:");
+					String autor = lectorTecla.next();
+					
+					//Recuperamos el libro
+					lib = recuperar(titulo+" "+autor+".libro");
+					
+					break;	
+				default:
+					System.out.println("No has seleccionado una opción correcta");
+			}
+		}
+		
+
+	}
+	
+	public static void guardar (libro lib, String f){
+		
+		//Creamos un objeto ObjectOutputStream para poder guardar en un archivo propio
+		//Debemos crearlo fuera del try-catch para poder utilizarlo en el finally
+		ObjectOutputStream guardar = null;
+		
+		try {
+			guardar = new ObjectOutputStream (new FileOutputStream(f));
+			//Guardamos el objeto LIBRO dentro del objeto-archivo propio
+			guardar.writeObject(lib);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			//Pase lo que pase cerramos el objeto
+			cerrarObjeto(guardar);
+		}
+		
+		
+	}
+	
+	public static libro recuperar (String f){
+		
+		//Creamos el objeto LIBRO para almacenar en él el archivo recuperado
+		libro lib = null;
+		//Creamos el objeto para poder recuperar/leer del archivo
+		ObjectInputStream recuperar = null;
+		
+		try {
+			//Le decimos el archivo de donde recuperarlo
+			recuperar = new ObjectInputStream (new FileInputStream(f));
+			//Leemos del recuperado y lo guardamos en un objeto LIBRO
+			lib = (libro) recuperar.readObject();
+			
+			System.out.println(lib.getTitulo()+" de "+lib.getAutor()+" recuperado correctamente."+"\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.out.println("Libro no encontrado para su recuperación"+"\n"+"Asegurate de haber introducido los datos correctamente.");
+		}
+		
+		return lib;
+		
+	}
+	
+	public static void cerrarObjeto (Closeable obj){
+		
+		//Si el objeto existe se cierra sino no hace nada
+		try {
+			if(obj != null){
+				obj.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+}

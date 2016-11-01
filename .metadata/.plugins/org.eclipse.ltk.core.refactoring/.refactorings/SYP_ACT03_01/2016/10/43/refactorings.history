@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;numsi&apos; in &apos;inicio.syp_act03_01.main(...)&apos; to &apos;entero&apos;&#x0D;&#x0A;- Original project: &apos;SYP_ACT03_01&apos;&#x0D;&#x0A;- Original element: &apos;inicio.syp_act03_01.main(String[]).numsi&apos;&#x0D;&#x0A;- Renamed element: &apos;numsi&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;numsi&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;inicio{syp_act03_01.java[syp_act03_01~main~\[QString;@numsi!226!247!234!238!Z!0!false" name="entero" references="true" stamp="1477507864448" version="1.0"/>
+</session>

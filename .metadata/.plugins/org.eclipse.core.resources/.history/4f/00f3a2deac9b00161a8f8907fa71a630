@@ -1,0 +1,35 @@
+package inicio;
+
+import java.util.Scanner;
+
+public class syp_act03_01 {
+
+	public static void main(String[] args) {
+		
+		//Variables
+		Scanner lectorTecla = new Scanner(System.in);
+		String num;
+		boolean numsi = false;
+		
+		System.out.println("Miguel A. Simeón"+"\n"+"PROGRAMACIÓN DE SERVICIOS Y PROCESOS - 2º DAM SEMIPRESENCIAL"+"\n"+"\n"+"Actividad 03 - 01 - Número par o impar"+"\n");
+		System.out.println("Dime un número");
+		num=lectorTecla.next();
+		
+		//Comprobamos que el número es un número y no letras
+		while(numsi==false){
+			try{
+				Integer numint=Integer.valueOf(num);
+				numsi=true;
+				System.out.println("si!");
+			}catch(Exception e){
+				System.out.println("Ouch!");
+				numsi=false;
+			}finally{
+				System.out.println("3");
+			}
+		}
+		System.out.println("final");
+		
+	}
+
+}

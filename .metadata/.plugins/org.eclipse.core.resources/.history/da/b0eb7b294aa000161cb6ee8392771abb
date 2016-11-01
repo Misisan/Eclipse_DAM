@@ -1,0 +1,9 @@
+package inicio;
+
+public class libro {
+
+	public libro() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

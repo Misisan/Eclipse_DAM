@@ -1,0 +1,60 @@
+package inicio;
+
+import java.io.Serializable;
+
+import javax.swing.JOptionPane;
+
+public class libro implements Serializable {
+	
+	//Variables
+	private String titulo;
+	private String autor;
+	private int anyoPub;
+	private String editor;
+	private int numPag;
+	
+	public libro() {
+		
+	}
+	
+	public void crearLibro(String titulo, String autor, int anyoPub, String editor, int numPag){
+		if (String.valueOf(anyoPub).length()==4){
+			this.titulo = titulo;
+			this.autor = autor;
+			this.anyoPub = anyoPub;
+			this.editor = editor;
+			this.numPag = numPag;
+		}else{
+			JOptionPane.showMessageDialog(null, "El libro " + titulo + " no ha podido ser guardado.", "Error de guardado", JOptionPane.ERROR_MESSAGE);
+			this.titulo = null;
+			this.autor = null;
+			this.anyoPub = 0;
+			this.editor = null;
+			this.numPag = 0;
+		}
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public int getAnyoPub() {
+		return anyoPub;
+	}
+
+	public String getEditor() {
+		return editor;
+	}
+
+	public int getNumPag() {
+		return numPag;
+	}
+
+	public void print(){
+		System.out.println(titulo+" de "+autor);
+	}
+}

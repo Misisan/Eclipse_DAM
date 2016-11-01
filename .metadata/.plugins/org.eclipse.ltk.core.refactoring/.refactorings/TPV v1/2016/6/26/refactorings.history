@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Inicio.java&apos; to &apos;TPV v1/src/Inicio&apos;&#x0D;&#x0A;- Original project: &apos;TPV v1&apos;&#x0D;&#x0A;- Destination element: &apos;TPV v1/src/Inicio&apos;&#x0D;&#x0A;- Original element: &apos;Inicio.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;Inicio" element1="/src&lt;{Inicio.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1467136325170" units="1" version="1.0"/>
+</session>
