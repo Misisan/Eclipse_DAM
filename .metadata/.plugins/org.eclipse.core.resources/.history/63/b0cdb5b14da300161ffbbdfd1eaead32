@@ -1,0 +1,14 @@
+package inicio;
+
+public class aad_02a {
+	
+	
+	public static void main(String[] args) {
+		
+		Parser parser = new Parser();
+		parser.parseFicheroXML("biblioteca.xml");
+		parser.parseDocument();
+		parser.print();
+	}
+	
+}

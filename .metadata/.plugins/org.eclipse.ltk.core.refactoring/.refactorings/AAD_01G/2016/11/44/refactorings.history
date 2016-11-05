@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;inicio&apos; to &apos;AAD_02A_DOM_XML/src&apos;&#x0D;&#x0A;- Original project: &apos;AAD_01G&apos;&#x0D;&#x0A;- Destination element: &apos;AAD_02A_DOM_XML/src&apos;&#x0D;&#x0A;- Original element: &apos;AAD_01G/src/inicio&apos;" description="Copy package" destination="=AAD_02A_DOM_XML/src" element1="/src&lt;inicio" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1478118221962" version="1.0"/>
+</session>

@@ -1,0 +1,127 @@
+package inicio;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+public class Parser {
+
+	private Document dom = null;
+	private ArrayList<libro> libros = null;
+	
+	public Parser() {
+		libros = new ArrayList<libro>();
+	}
+	
+	public void parseFicheroXML(String f){
+		
+		System.out.println("Entra en parseFicheroXML");
+		//Creamos la factory
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		
+		try{
+			//Creamos el Builder
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			
+			//Parseamos el XML para obtener el DOM
+			dom = builder.parse(f);
+			System.out.println(dom);
+		}catch (ParserConfigurationException pce){
+			pce.printStackTrace();
+		}catch (SAXException se){
+			se.printStackTrace();
+		}catch(IOException ioe){
+			ioe.printStackTrace();
+		}
+	}
+	
+	public void parseDocument(){
+		
+		//Definimos el elemento raíz para el DOM
+		Element eleRaiz = dom.getDocumentElement();
+		
+		//Definimos el nodo para el DOM
+		NodeList nodos = eleRaiz.getElementsByTagName("libro");
+		
+		//Recorremos los nodos en busca de los elementos
+		if(nodos != null && nodos.getLength()>0){
+			
+			for(int i=0; i<nodos.getLength(); i++){
+				//Obtenemos un elemento del ArrayList
+				Element el = (Element) nodos.item(i);
+				
+				//Creamos el libro y lo añadimos al ArrayList
+				libro lib = getLibro(el);
+				libros.add(lib);
+			}
+		}
+	}
+	
+	private libro getLibro(Element l){
+		
+		//Rescatamos las variables del elemento
+		String titulo = getTextValue(l, "titulo");
+		String autor = getTextValue(l, "autor");
+		String editor = getTextValue(l, "editor");
+		int anyoPub = getIntValueAtt(l, "titulo", "anyo");
+		int numPag = getIntValue(l, "paginas");
+		
+		//Creamos el libro
+		libro lib = new libro();
+		lib.crearLibro(titulo, autor, anyoPub, editor, numPag);
+		
+		return lib;
+	}
+	
+	private String getTextValue(Element l, String tag){
+		
+		String txt = null;
+		NodeList nodos = l.getElementsByTagName(tag);
+		
+		if(nodos != null && nodos.getLength() > 0){
+			Element l2 = (Element) nodos.item(0);
+			txt = l2.getFirstChild().getNodeValue();
+		}
+		return txt;		
+	}
+	
+
+	private int getIntValueAtt(Element l, String tag, String tagAtt){
+		String txt = "2";
+		NodeList nodos = l.getElementsByTagName(tag);
+		
+		try{
+			if(nodos != null && nodos.getLength() > 0){
+				Element l2 = (Element) nodos.item(0);
+				txt = l2.getAttribute(tagAtt);
+				System.out.println("ATT: "+txt);
+			}
+		}catch(Exception e){
+			System.out.println("Ha habido un error con el atributo introducido");
+		}finally{
+			return 2001;
+		}
+	}
+	
+	private int getIntValue(Element l, String tag){
+		return Integer.parseInt(getTextValue(l, tag));		
+	}
+	
+	public void print(){
+		Iterator it = libros.iterator();
+		while(it.hasNext()){
+			libro lib = (libro) it.next();
+			lib.print();
+		}
+	}
+
+}
