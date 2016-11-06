@@ -1,0 +1,148 @@
+package inicio;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Text;
+
+public class marshaller {
+
+	private Document dom = null;
+	private ArrayList<libro> libros = null;
+	
+	public marshaller(ArrayList<libro> libs) {
+		libros=libs;
+	}
+	
+	public void crearDocumento(){
+		//Creamos la factory
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		
+		try{
+			
+			//Creamos el Builder
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			
+			//Creamos el documento para el DOM
+			dom=builder.newDocument();
+			
+		}catch(ParserConfigurationException pce){
+			pce.printStackTrace();
+		}
+	}
+	
+	//Creamos la estructura DOM del XML resultante
+	public void crearArbolDOM() {
+
+		//Creamos un elemento raíz llamado LIBROS
+		Element elementoRaíz = dom.createElement("libros");
+		dom.appendChild(elementoRaíz);
+		
+		Iterator iteratorLibs = libros.iterator();
+		//Recorremos con el iteratoe el ArrayList para extraer la información e insertarla en el XML
+		while (iteratorLibs.hasNext()) {
+			//Sacamos cada libro que encuentre dentro del ArrayList
+			libro lib = (libro) iteratorLibs.next();
+			//Lo enviamos al método que procesa la información y la prepara para el XML
+			Element elementoLibro = crearLibro(lib);
+			//Introducimos el elemento devuelto a continuación de la raíz en el árbol XML
+			elementoRaíz.appendChild(elementoLibro);
+		}
+
+	}
+	
+	//Procesamos la información de cada libro rescatado del ArrayList a DOM/XML
+	private Element crearLibro(libro lib) {
+
+		//Definimos la etiqueta principal que englobará a cada LIBRO
+		Element elementoLibro = dom.createElement("libro");
+		
+		//NODO TÍTULO-----------------------------------------------------------------------------------------------
+		
+			//Creamos el elemento TITULO
+			Element elementoTitulo = dom.createElement("titulo");
+			
+			//Creamos el nodo en el DOM que pilla la información de LIBRO
+			Text titulo = dom.createTextNode(lib.getTitulo());
+			
+			//Metemos la info obtenido dentro del elemento TITULO (pq es un TEXT se añade como dato y no como etiqueta hijo)
+			elementoTitulo.appendChild(titulo);
+			
+			//Añadimos el elemento Título como hijo de LIBRO (pq es un elemento)
+			elementoLibro.appendChild(elementoTitulo);
+		
+		//NODO AUTOR-----------------------------------------------------------------------------------------------
+			Element elementoAutor = dom.createElement("autor");
+			Element elementoAutorNombre = dom.createElement("nombre");
+			
+			//El nombre del autor lo dividimos en cada parte del nombre para guardarlos por separado
+			String[] autor = lib.getAutor().split(" ");
+			for(int i=0; i<autor.length; i++){	
+				Text name = dom.createTextNode("hola");
+				elementoAutorNombre.appendChild(name);
+				System.out.println(elementoAutorNombre.getTextContent());
+				elementoAutor.appendChild(elementoAutorNombre);
+				elementoLibro.appendChild(elementoAutor);
+			}
+			//Text autorInd = dom.createTextNode(autor[0]);
+			//Text autorInd2 = dom.createTextNode(autor[1]);
+			//elementoAutorNombre.appendChild(autorInd);	
+			//elementoAutorNombre.appendChild(autorInd2);
+			
+						
+			
+		//NODO EDITOR----------------------------------------------------------------------------------------------
+			Element elementoEditor = dom.createElement("editor");
+			Text editor = dom.createTextNode(lib.getEditor());
+			elementoEditor.appendChild(editor);
+			elementoLibro.appendChild(elementoEditor);
+			
+		//NODO AÑO DE PUBLICACIÓN----------------------------------------------------------------------------------
+			Element elementoAnyoPub = dom.createElement("edad");
+			Text anyo = dom.createTextNode(Integer.toString(lib.getAnyoPub()));
+			elementoAnyoPub.appendChild(anyo);
+			elementoLibro.appendChild(elementoAnyoPub);
+			
+		//NODO NUM. DE PÁGINAS-------------------------------------------------------------------------------------
+			Element elementoNumPags = dom.createElement("edad");
+			Text edad = dom.createTextNode(Integer.toString(lib.getNumPag()));
+			elementoNumPags.appendChild(edad);
+			elementoLibro.appendChild(elementoNumPags);
+		
+		return elementoLibro;
+	}
+	
+	//Método para convertir el objeto DOM a XML
+	public void DOMtoXML(File f) throws TransformerException {
+		
+		//TRANSFORMER es una clase abstracta para realizar la conversión DOM-XML
+		
+		//Creamos la factory+builder(transformer en este caso) de TRANSFORMER
+		Transformer factoryTransform = TransformerFactory.newInstance().newTransformer();
+		//Indicamos que el XML creado esté en varias lineas
+		factoryTransform.setOutputProperty(OutputKeys.INDENT, "yes");
+
+		// especificamos dónde escribimos y la fuente de datos
+		//Cargamos el fichero resultante donde escribir los datos
+		StreamResult destinoFichero = new StreamResult(f);
+		//Cargamos el DOM utilizado
+		DOMSource origenDOM = new DOMSource(dom);
+		//Con los datos de arriba realizamos la conversión DOM-XML
+		factoryTransform.transform(origenDOM, destinoFichero);
+
+	}
+	
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libros>
+<libro>
+<titulo anyo="2031">La historia más larga jamás contada</titulo>
+<autor>
+<nombre>Paquito</nombre>
+<nombre>Jackson</nombre>
+</autor>
+<editor>autoedición</editor>
+<edad>5</edad>
+</libro>
+<libro>
+<titulo anyo="1974">Verdad verdadera de la verdad</titulo>
+<autor>
+<nombre>Anónimo</nombre>
+</autor>
+<editor>Francisco O'Donell</editor>
+<edad>561</edad>
+</libro>
+</libros>
