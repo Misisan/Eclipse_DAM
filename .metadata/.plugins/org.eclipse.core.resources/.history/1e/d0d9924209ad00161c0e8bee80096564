@@ -1,0 +1,14 @@
+package inicio;
+
+public class syp_t2_act01_thread {
+
+	public syp_t2_act01_thread() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
