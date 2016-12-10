@@ -27,7 +27,7 @@ import javax.swing.Action;
 import javax.swing.JEditorPane;
 
 public class compArch extends JFrame {
-/*Al no estar especificada la horma de introducir los archivos, la actividad se ha planteada de la siguiente manera:
+/*Al no estar especificada la forma de introducir los archivos, la actividad se ha planteada de la siguiente manera:
  * - para la 1a parte hay ya creados dos archivos que son los que se comparan (fichero01.txt y fichero02.txt)
  * - para la 2a parte hay ya creado un archivo que es en el que se busca (ficheroBuscar.txt)
  * - El CONSTRUCTOR tiene todo el entorno gráfico y los Listener
@@ -243,7 +243,7 @@ public class compArch extends JFrame {
 		//Recorremos las lineas del archivo para que aparezca el primer resultado
 		while((lin1=bf1.readLine())!=null && primera_aparicion==true){
 			//Realizamos la comparación de cada linea con la palabra para encontrar la que coincida
-			if(lin1.equals(palabra)){
+			if(lin1.matches(palabra+".*") ){
 				//Si la encuentra cerramos los Bufferedreader y salimos del método con el num de linea que ha aparecido
 				bf1.close();
 				return cont;
@@ -254,7 +254,7 @@ public class compArch extends JFrame {
 		//Recorrdemos las lineas del archivo para que aparezca el último resultado
 		while((lin1=bf1.readLine())!=null && primera_aparicion==false){
 			//Realizamos la comparación de cada linea con la palabra para encontrar la que coincida
-			if(lin1.equals(palabra)){
+			if(lin1.matches(palabra+".*") ){
 				//Nos guardamos la posición en la que aparece cada coincidencia
 				posicion=cont+1;
 			}

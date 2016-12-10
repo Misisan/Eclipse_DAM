@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/SYP_T02_ACT01_THREADS/src/inicio/syp_t2_act01_thread.java"/>
+<listEntry value="/SYP_T02_ACT01 - Hilos_Threads/src/inicio/syp_t2_act01_thread.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="inicio.syp_t2_act01_thread"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SYP_T02_ACT01_THREADS"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SYP_T02_ACT01 - Hilos_Threads"/>
 </launchConfiguration>

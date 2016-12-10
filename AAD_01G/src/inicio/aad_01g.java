@@ -36,6 +36,14 @@ public class aad_01g {
 			}
 		}
 		
+		
+		//EXAM----------------------------------------------------------------------------------------------
+				ArrayList<String> librosExam = new ArrayList();
+				librosExam.add("El_libro_mas_largo_del_mundo_de_Yo.libro");
+				librosExam.add("Fito_de_Fitipaldi.libro");
+				librosExam.add("Harry_Potter_de_JK_Rowrow.libro");				
+		//----------------------------------------------------------------------------------------------------
+		
 		//Entramos en el menú
 		while (tecla!=0){
 			System.out.println("\n"+"Vamos a manejar libros!!"
@@ -46,6 +54,7 @@ public class aad_01g {
 			System.out.println("4: Para cargar libro externo");
 			System.out.println("5: Para importar lista de libros");
 			System.out.println("6: Para exportar lista de lisbros");
+			System.out.println("7: Examen");
 			System.out.println("0: Para salir");
 			
 			//Evitamos errores por no itroducir integers
@@ -82,6 +91,9 @@ public class aad_01g {
 					break;
 				case 6:
 					exportarLista();
+					break;
+				case 7:
+					examen(librosExam);
 					break;
 				default:
 					System.out.println("No has seleccionado una opción correcta");
@@ -356,5 +368,61 @@ public class aad_01g {
   			
   		}catch(Exception e){}
   		
+  	}
+  	
+public static void examen(ArrayList<String> lib){
+  		
+  		int contador = 1;
+  		
+		if(lib.size()!=0){
+			
+			for(int i=0; i<lib.size(); i++) {
+				 
+				libro libEx = null;
+				ObjectInputStream recuperar = null;
+				
+				try {
+					
+					recuperar = new ObjectInputStream (new FileInputStream(lib.get(i)));
+					libEx = (libro) recuperar.readObject();
+					System.out.println("Libro num "+(i+1)+": "+libEx.getAnyoPub());	
+					
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				
+				}
+		}
+		
+		
+		
+		/*
+		
+		
+		
+		//Creamos el objeto LIBRO para almacenar en él el archivo recuperado
+				libro lib = null;
+				//Creamos el objeto para poder recuperar/leer del archivo
+				ObjectInputStream recuperar = null;
+				
+				try {
+					//Le decimos el archivo de donde recuperarlo
+					recuperar = new ObjectInputStream (new FileInputStream(f));
+					//Leemos del recuperado y lo guardamos en un objeto LIBRO
+					lib = (libro) recuperar.readObject();
+					
+					System.out.println(lib.getTitulo()+" de "+lib.getAutor()+" recuperado correctamente."+"\n");
+					guardarEnLista(lib);
+					
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					System.out.println("Libro no encontrado para su recuperación"+"\n"+"Asegurate de haber introducido los datos correctamente.");
+				}
+		
+		*/
   	}
 }

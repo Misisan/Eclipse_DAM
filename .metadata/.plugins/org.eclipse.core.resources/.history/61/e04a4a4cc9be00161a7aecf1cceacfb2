@@ -1,0 +1,49 @@
+package inicio;
+
+public class syp_t2_act02 {
+	
+	
+
+	public static void main(String[] args) {
+		//Creamos a los corredores
+		Animal t = new Animal("Ambrosio", "tortuga");
+		Animal l = new Animal("Hermenegildo", "liebre");
+		Animal g = new Animal ("Edelmira", "guepardo");
+		
+		//Los ponemos en sus marcas
+		Thread h1 = new Thread(new run_hilo(t));
+		Thread h2 = new Thread(new run_hilo(l));
+		Thread h3 = new Thread(new run_hilo(g));
+		
+		//Iniciamos la carrera
+		h1.start();
+		h2.start();
+		h3.start();
+
+	}
+	
+	//Clase runnable a ejecutar por los threads
+	static class run_hilo implements Runnable{
+		
+		private Animal a;
+		
+		public run_hilo(Animal a){
+			this.a=a;
+		}
+		
+		public void run(){
+			for (int i = 0; i<10; i++){
+				try {
+					System.out.println(a.getNombre()+" el/la "+a.getTipo()+" ya lleva "+i+"m");
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			System.out.println(a.getNombre()+" ha llegado a la meta!");
+		}
+		
+	}
+
+}

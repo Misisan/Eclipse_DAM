@@ -1,9 +1,0 @@
-package inicio;
-
-public class thread_prueba {
-
-	public thread_prueba() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

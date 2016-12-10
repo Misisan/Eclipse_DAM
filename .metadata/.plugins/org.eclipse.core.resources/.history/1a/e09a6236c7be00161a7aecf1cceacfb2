@@ -1,0 +1,19 @@
+package inicio;
+
+public class syp_t2_act02 {
+	
+	
+
+	public static void main(String[] args) {
+		Animal t = new Animal("tortuga");
+		Animal l = new Animal("liebre");
+		Animal g = new Animal ("guepardo");
+		
+		System.out.println(t.getNombre());
+		System.out.println(l.getNombre());
+		System.out.println(g.getNombre());
+		
+
+	}
+
+}

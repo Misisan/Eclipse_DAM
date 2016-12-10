@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;SYP_T02_ACT01_THREADS&apos; to &apos;SYP_T02_ACT01 - Hilos_Threads&apos;&#x0D;&#x0A;- Original element: &apos;SYP_T02_ACT01_THREADS&apos;&#x0D;&#x0A;- Renamed element: &apos;SYP_T02_ACT01_THREADS&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;SYP_T02_ACT01_THREADS&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=SYP_T02_ACT01_THREADS" name="SYP_T02_ACT01 - Hilos_Threads" references="true" stamp="1481364791086" version="1.0"/>
+</session>
