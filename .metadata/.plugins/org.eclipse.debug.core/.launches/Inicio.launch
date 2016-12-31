@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/probaaaaaa"/>
+<listEntry value="/AAD_02C_DOM_HTML/src/inicio/inicio.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="4"/>
+<listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="inicio.Synch"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="probaaaaaa"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="inicio.inicio"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="AAD_02C_DOM_HTML"/>
 </launchConfiguration>

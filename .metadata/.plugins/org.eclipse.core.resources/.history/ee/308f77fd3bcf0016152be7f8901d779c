@@ -1,0 +1,73 @@
+package inicio;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.jsoup.Connection.Response;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+/*** AAD - 02c - Parser de HTML ***/
+public class inicio {
+
+	public static void main(String[] args) {
+		
+		Document htmlFile = null;
+		Response response = null;
+		String url = "https://www.pccomponentes.com/ofertas-especiales";
+		
+		try {
+				response = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(100000).ignoreHttpErrors(true).execute();
+		    } catch (IOException ex) {
+		    	System.out.println("Excepción al obtener el Status Code: " + ex.getMessage());
+	    	}
+	  
+		try {
+		    	htmlFile = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(100000).get();
+		    } catch (IOException ex) {
+		    	System.out.println("Excepción al obtener el HTML de la página" + ex.getMessage());
+		    }
+			
+		  // Busco todas las entradas que estan dentro de: 
+        Elements entradas = htmlFile.select("div.col-md-4.col-xs-12").not("div.col-md-offset-2.col-md-4.col-xs-12");
+        System.out.println("Número de entradas en la página inicial de Jarroba: "+entradas.size()+"\n");
+		
+        // Paseo cada una de las entradas
+        for (Element elem : entradas) {
+            String titulo = elem.getElementsByClass("tituloPost").text();
+            String autor = elem.getElementsByClass("autor").toString();
+            String fecha = elem.getElementsByClass("fecha").text();
+			
+            System.out.println(titulo+"\n"+autor+"\n"+fecha+"\n\n");
+			
+            // Con el método "text()" obtengo el contenido que hay dentro de las etiquetas HTML
+            // Con el método "toString()" obtengo todo el HTML con etiquetas incluidas
+			/*
+		try {
+			//htmlFile = Jsoup.parse(new File("https://www.pccomponentes.com/ofertas-especiales"), "UTF-8");
+			htmlFile = Jsoup.connect("https://www.pccomponentes.com/ofertas-especiales").get();
+			//htmlFile = Jsoup.parse(input, "UTF-8", "https://www.pccomponentes.com/ofertas-especiales");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+		//String title = htmlFile.title();
+		//System.out.println("Título : " + title);
+		
+		//String h1 = htmlFile.getElementsByTag("h1").text();
+		//Elements h1 = htmlFile.getElementsByClass("tarjeta-articulo__elementos-basicos");
+		//System.out.println("H1 : " + h1.toString());				
+		
+		//Element tabla = htmlFile.getElementById("tabla");
+		//System.out.println("Tabla: " + tabla.getAllElements().get(0));
+		
+		Element link = htmlFile.select("a").first();
+		String p = link.nodeName();
+		System.out.println(p);
+		
+		*/
+
+	}
+
+}
