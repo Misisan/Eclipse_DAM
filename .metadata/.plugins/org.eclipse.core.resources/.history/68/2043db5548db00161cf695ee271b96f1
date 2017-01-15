@@ -1,0 +1,34 @@
+package inicio;
+
+import org.hibernate.Session;
+
+public class aad_5a_masimeon {
+
+	public static void main(String[] args) {
+		System.out.println("Hola");
+		
+		//Iniciamos la sesión de Hibernate
+		Session session = HibernateUtilities.getSessionFactory().openSession();
+		
+		//Iniciamos la transacción para poder trabajar
+		session.beginTransaction();
+		
+		Empresa e = new Empresa();
+		e.setNombre("Empresa de pruba 1");
+		e.setCIF("12345678A");
+		e.setDireccion("C/ Desconocida sn");
+		e.setEmpleados(78);
+		
+		//guardamos el objeto creado en la session abierta
+		session.save(e);
+		
+		//Ejecutamos todo con el commit
+		session.getTransaction().commit();
+		
+		//Cerramos la sesión de Hibernate
+		session.close();
+		//Cerramos la sesión del Factory
+		HibernateUtilities.getSessionFactory().close();
+	}
+
+}

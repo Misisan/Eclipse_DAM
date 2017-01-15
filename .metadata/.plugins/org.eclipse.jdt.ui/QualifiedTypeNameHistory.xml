@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.DriverManager"/>
-<fullyQualifiedTypeName name="Modelo.conexionBBDD"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="Ventanas.VentanaPerfil"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="Modelo.usuarioBBDD"/>
 <fullyQualifiedTypeName name="Jugador.Jugador"/>
 <fullyQualifiedTypeName name="Modelo.conexionActiveDirectory"/>
 <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.swing.JTextArea"/>
 <fullyQualifiedTypeName name="java.awt.event.ItemListener"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
@@ -58,6 +49,15 @@
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="org.jsoup.Connection.Response"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="org.hibernate.boot.registry.StandardServiceRegistry"/>
+<fullyQualifiedTypeName name="org.hibernate.boot.Metadata"/>
+<fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
+<fullyQualifiedTypeName name="org.hibernate.boot.registry.StandardServiceRegistryBuilder"/>
+<fullyQualifiedTypeName name="org.hibernate.boot.MetadataSources"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

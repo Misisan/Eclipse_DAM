@@ -1,0 +1,17 @@
+package inicio;
+
+import org.hibernate.Session;
+
+public class aad_5a_masimeon {
+
+	public static void main(String[] args) {
+		System.out.println("Hola");
+		
+		//Iniciamos la sesión de Hibernate
+		Session session = HibernateUtilities.getSessionFactory().openSession();
+		
+		//Cerramos la sesión de Hibernate
+		session.close();
+	}
+
+}
