@@ -1,0 +1,70 @@
+package inicio;
+
+public class sypt2act4 extends Thread{
+
+	//Método Main para iniciar el programa
+	public static void main(String[] args) {
+
+		//Definimos y creamos el hilo de esta clase (thread)
+		sypt2act4 hthr = new sypt2act4();
+		//Definimos y creamos el hilo runnable
+		Thread hrun = new Thread(new run_hilo());
+
+		
+		//Damos prioridades
+		hthr.setPriority(Thread.NORM_PRIORITY);
+		hrun.setPriority(Thread.NORM_PRIORITY);
+
+		
+		//EJecutamos los hilo
+		hthr.start();
+		hrun.start();
+
+	}
+	
+	//Constructor
+	//En este caso no necesitamos que el constructor haga nada porque al extender el thread
+	//con el start del main se ejecuta directamente el método run() de esta clase.
+	public sypt2act4(){}
+	
+	//Método run que se inicializa con el start del main
+	public void run(){
+		//Inicicio del hilo
+		System.out.println("Inicio del hilo thread...");
+		for (int i = 0; i<10; i++){
+			try {
+				System.out.println("Hilo thread en marcha...");
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		//Fin del hilo
+		System.out.println("Fin del hilo thread.");
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------------------------
+	
+	//Clase runnable a ejecutar por un nuevo hilo
+	static class run_hilo implements Runnable{
+				
+		public run_hilo(){}
+		
+		public void run(){
+			
+			//Inicicio del hilo
+			System.out.println("Inicio del hilo runnable...");
+			for (int i = 0; i<10; i++){
+				try {
+					System.out.println("Hilo runnable en marcha...");
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			//Fin del hilo
+			System.out.println("Fin del hilo runnable.");
+		}
+		
+	}
+}

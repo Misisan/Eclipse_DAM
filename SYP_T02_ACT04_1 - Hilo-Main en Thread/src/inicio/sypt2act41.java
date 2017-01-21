@@ -1,58 +1,51 @@
 package inicio;
 
-public class sypt2act41 {
+public class sypt2act41 extends Thread{
 
+	//Método Main para iniciar el programa
 	public static void main(String[] args) {
-		//Creamos a los corredores
-		Animal t = new Animal("Ambrosio", "tortuga");
-		Animal l = new Animal("Hermenegildo", "liebre");
-		Animal g = new Animal ("Edelmira", "guepardo");
-		Animal c = new Animal ("Anselmo", "caracol");
+
+		//Definimos y creamos el hilo de esta clase (thread)
+		sypt2act41 hthr = new sypt2act41();
 		
-		//Los ponemos en sus carriles para la carrera de 10m
-		Thread h1 = new Thread(new run_hilo(t));
-		Thread h2 = new Thread(new run_hilo(l));
-		Thread h3 = new Thread(new run_hilo(g));
-		Thread h4 = new Thread(new run_hilo(c));
+		//Damos prioridades
+		//hthr.setPriority(Thread.NORM_PRIORITY);
 		
-		//Trucamos la carrera para poder apostar por el ganador
-			/*h1.setPriority(5);
-			h2.setPriority(4);
-			h3.setPriority(10);*/
-		h1.setPriority(Thread.NORM_PRIORITY);
-		h2.setPriority(Thread.NORM_PRIORITY);
-		h3.setPriority(Thread.MAX_PRIORITY);
-		h4.setPriority(Thread.MIN_PRIORITY);
+		//EJecutamos los hilo
+		hthr.start();
 		
-		//Iniciamos la carrera
-		h1.start();
-		h2.start();
-		h3.start();
-		h4.start();
+		//Hilo del main
+		for (int i = 0; i<10; i++){
+			try { 
+				System.out.println("Hilo del main en marcha...");
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
 
 	}
 	
-	//Clase runnable a ejecutar por los threads
-	static class run_hilo implements Runnable{
-		
-		private Animal a;
-		
-		public run_hilo(Animal a){
-			this.a=a;
-		}
-		
-		public void run(){
-			for (int i = 0; i<10; i++){
-				try {
-					System.out.println(a.getNombre()+" el/la "+a.getTipo()+" ya lleva "+i+"m");
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+	//Constructor
+	//En este caso no necesitamos que el constructor haga nada porque al extender el thread
+	//con el start del main se ejecuta directamente el método run() de esta clase. Podemos quitarlo sin problema
+	//public sypt2act41(){}
+	
+	//Método run que se inicializa con el start del thread
+	public void run(){
+		//Inicicio del hilo
+		System.out.println("Inicio del hilo del thread...");
+		for (int i = 0; i<10; i++){
+			try { 
+				System.out.println("Hilo del thread en marcha...");
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-			
-			System.out.println("\n"+"El/La "+a.getTipo()+" "+a.getNombre()+" ha llegado a la meta!"+"\n");
 		}
-		
+		//Fin del hilo
+		System.out.println("Fin del hilo del thread.");
 	}
+	
 }

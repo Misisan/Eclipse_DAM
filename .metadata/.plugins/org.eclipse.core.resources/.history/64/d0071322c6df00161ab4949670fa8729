@@ -1,0 +1,72 @@
+package inicio;
+
+import inicio.sypt2act42.run_hilo;
+
+public class sypt2act43 {
+	
+	private int suma=0;
+	private int cont=0;
+	private int media;
+	
+	//Semáforo para controlar el acceso al método sincronizado
+	private boolean libre = true;
+	
+	public sypt2act43() {
+
+	}
+
+	public static void main(String[] args) {
+		//Definimos y creamos el hilo runnable
+		Thread hrun = new Thread(new run_hilo());
+		
+		//Ejecutamos los hilo
+		hrun.start();
+
+	}
+	
+	//Método de cálculo común para todos los hilos
+	public synchronized void nuevoValor(Integer i) throws Exception{
+		
+		//Si no está libre esperamos
+		while(!libre){
+			wait();
+		}
+		suma = suma+ i;
+		cont++;
+		media = suma/cont;
+		
+		System.out.println(cont+" | Sumatorio: "+suma+" | Media :"+media);
+		
+		//Una vez terminado todo, liberamos el semáforo y les notificamos al resto de hilos que se reactiven
+		libre=true;
+		notifyAll();
+	}
+	
+	
+	//----------------------------------------------------------------------------------------------------------------inner class
+	//Clase runnable a ejecutar por un nuevo hilo
+	static class run_hilo implements Runnable{
+				
+		//public run_hilo(){}//En este caso no lo necesitamos, se ejecuta directamente en run()
+		
+		public void run(){
+			
+			for (int i = 0; i<10; i++){
+				try {
+					this.nuevoValor(2);
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		private void nuevoValor(int i) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,50 @@
+package inicio;
+
+import java.sql.Date;
+
+public class Pedido {
+
+	private Integer id;
+	private Date fecha;
+	private Item item;
+	
+	public Pedido(Date fecha) {
+		this.fecha=fecha;
+		item = new Item();
+	}
+	
+	public Pedido(){}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+	
+	public void setItemNombre(String n){
+		item.setNombre(n);
+	}
+	
+	public String getItemNombre(){		
+		return item.getNombre();
+	}
+	
+	public void setItemCantidad(Integer i){
+		item.setCantidad(i);
+	}
+	
+	public Integer getItemCantidad(){
+		return item.getCantidad();
+	}
+
+}

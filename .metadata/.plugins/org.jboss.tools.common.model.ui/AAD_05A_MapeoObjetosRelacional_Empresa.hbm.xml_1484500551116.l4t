@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Layout resource="/AAD_05A_MapeoObjetosRelacional/src/inicio/Empresa.hbm.xml">
+<Layout resource="/AAD_05B_MapeoObjetosRelacional/src/inicio/Empresa.hbm.xml">
  <TreeFormPage>
   <Memento type="FileHibernate3">
    <Memento type="File Hibernate 3.0"/>

@@ -1,0 +1,56 @@
+package inicio;
+
+public class sypt2act43 {
+	
+	private static int suma=0;
+	private static int cont=0;
+	private static int media;
+	
+	//Semáforo para controlar el acceso al método sincronizado
+	private boolean libre = true;
+	
+	public sypt2act43() {
+
+	}
+
+	public static void main(String[] args) {
+		//Definimos y creamos el hilo runnable
+		Thread hrun = new Thread(new run_hilo());
+		
+		//Ejecutamos los hilo
+		hrun.start();
+
+	}
+	
+	//Método de cálculo común para todos los hilos
+	public synchronized static void nuevoValor(Integer i) throws Exception{
+		suma = suma+ i;
+		cont++;
+		media = suma/cont;
+		
+		System.out.println(cont+" | num. introducido: "+i+" | Sumatorio: "+suma+" | Media :"+media);
+	}
+	
+	
+	//----------------------------------------------------------------------------------------------------------------inner class
+	//Clase runnable a ejecutar por un nuevo hilo
+	static class run_hilo implements Runnable{
+				
+		//public run_hilo(){}//En este caso no lo necesitamos, se ejecuta directamente en run()
+		
+		public void run(){
+			
+			for (int i = 0; i<10; i++){
+				try {
+					sypt2act43.nuevoValor(2);
+					Thread.sleep(100);
+				} catch ( Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		
+	}
+
+}
