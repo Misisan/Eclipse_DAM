@@ -1,9 +1,0 @@
-package inicio;
-
-public class HibernateUtilities {
-
-	public HibernateUtilities() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

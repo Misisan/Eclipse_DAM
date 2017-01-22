@@ -1,16 +1,19 @@
 package inicio;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pedido {
 
+
 	private Integer id;
 	private Date fecha;
-	private Item item;
+	private List<Item> item;
 	
 	public Pedido(Date fecha) {
 		this.fecha=fecha;
-		item = new Item();
+		item = new ArrayList<Item>();
 	}
 	
 	public Pedido(){}
@@ -31,11 +34,11 @@ public class Pedido {
 		this.fecha = fecha;
 	}
 	
-	public void setItem(Item item){
+	public void setItem(List<Item> item){
 		this.item=item;
 	}
 	
-	public Item getItem(){
+	public List<Item> getItem(){
 		return item;
 	}
 
