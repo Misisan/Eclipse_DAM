@@ -12,11 +12,13 @@ public class Item {
 	
 	public Item(){}
 
-	public String getNombre() {
+	//Los Getters y Setters deben llamarse igual que la variable con la que trabajan,
+	//sinó el Hibernate da error
+	public String getNombrei() {
 		return nombrei;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombrei(String nombre) {
 		this.nombrei = nombre;
 	}
 
