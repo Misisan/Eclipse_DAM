@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;AAD_05C_MapeoObjetosRelacional2&apos; to &apos;AAD_05C_MapeoObjetosRelacional&apos;&#x0D;&#x0A;- Original element: &apos;AAD_05C_MapeoObjetosRelacional2&apos;&#x0D;&#x0A;- Renamed element: &apos;AAD_05C_MapeoObjetosRelacional2&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;AAD_05C_MapeoObjetosRelacional2&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=AAD_05C_MapeoObjetosRelacional2" name="AAD_05C_MapeoObjetosRelacional" references="true" stamp="1485713603764" version="1.0"/>
+</session>
