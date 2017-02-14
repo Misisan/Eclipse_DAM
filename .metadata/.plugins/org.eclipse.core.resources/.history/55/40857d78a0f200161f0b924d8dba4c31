@@ -1,0 +1,64 @@
+package inicio;
+
+public class syp_exam {
+
+	//Método Main para iniciar el programa
+	public static void main(String[] args) {
+
+		//Definimos y creamos el hilo runnable
+		Thread hrun1 = new Thread(new run_hilo("hilo 1", "soy el hilo 1 y me estoy ejecutando"));
+		Thread hrun2 = new Thread(new run_hilo("soy el hilo 2 y también estoy ejecutándome"));
+		Thread hrun3 = new Thread(new run_hilo("Dejadme sitio a mi también"));
+		
+		//Damos prioridades
+		//hrun.setPriority(Thread.NORM_PRIORITY);
+		
+		//EJecutamos los hilo
+		hrun1.start();
+		hrun2.start();
+		hrun3.start();
+		
+		//Hilo del main
+		for (int i = 0; i<5; i++){
+			try {
+				System.out.println("Hilo main en marcha...");
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+	
+	//-----------------------------------------------------------------------------------------------------------------------------
+	
+	//Clase runnable a ejecutar por un nuevo hilo
+	static class run_hilo implements Runnable{
+		
+		private String mensaje;
+		private String nombre;
+		
+		public run_hilo(String n, String m){
+			this.mensaje=m;
+			this.nombre=n;
+		}
+		
+		public void run(){
+			
+			//Inicicio del hilo
+			System.out.println("Inicio del hilo runnable...");
+			for (int i = 0; i<5; i++){
+				try {
+					System.out.println(mensaje);
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			//Fin del hilo
+			System.out.println("Finaliza el "+nombre);
+		}
+		
+	}
+}
+

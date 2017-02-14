@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;inicio.sypt2act42&apos; to &apos;syp_exam&apos;&#x0D;&#x0A;- Original project: &apos;SYP_EXAM_20170214&apos;&#x0D;&#x0A;- Original element: &apos;inicio.sypt2act42&apos;&#x0D;&#x0A;- Renamed element: &apos;inicio.syp_exam&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;sypt2act42&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;inicio{sypt2act42.java[sypt2act42" matchStrategy="1" name="syp_exam" qualified="false" references="true" similarDeclarations="false" stamp="1487067832480" textual="false" version="1.0"/>
+</session>
