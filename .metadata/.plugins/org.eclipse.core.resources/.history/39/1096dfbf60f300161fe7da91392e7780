@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-feb-2017 10:21:45 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="inicio.Grupo" table="GRUPO">
+        <id name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+            <generator class="assigned" />
+        </id>
+        <property name="estilo" type="java.lang.String">
+            <column name="ESTILO" />
+        </property>
+        <property name="miembros" type="int">
+            <column name="MIEMBROS" />
+        </property>
+        <many-to-one name="festival" class="inicio.Festival" fetch="join">
+            <column name="FESTIVAL" />
+        </many-to-one>
+        
+      	<many-to-one name="actuacion" class="inicio.Actuacion" column="ID_ACT" cascade="save-update" unique="true"/>
+        <property name="actu" type="java.lang.String">
+            <column name="ACTU" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -92,6 +92,12 @@
 	<section name="ClasspathContainerSelectionPage">
 		<item value="0" key="index"/>
 	</section>
+	<section name="org.hibernate.eclipse.jdt.ui.wizards.JavaPackageSelectionDialog">
+		<item value="489" key="x"/>
+		<item value="398" key="width"/>
+		<item value="72" key="y"/>
+		<item value="438" key="height"/>
+	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="NewPackageWizardPage">

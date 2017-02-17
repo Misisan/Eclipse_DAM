@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-feb-2017 10:32:32 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="inicio.Actuacion" table="ACTUACION">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="hora" type="java.lang.String">
+            <column name="HORA" />
+        </property>
+        <property name="escenario" type="java.lang.String">
+            <column name="ESCENARIO" />
+        </property>
+         <one-to-one name="grupo" class="inicio.Grupo" property-ref="actu"></one-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+package inicio;
+
+public class Grupo {
+	
+	private String nombre;
+	private String estilo;
+	private int miembros;	
+	private Festival festival;
+	private String actuacion;
+	private Actuacion actuacionC;
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getEstilo() {
+		return estilo;
+	}
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
+	}
+	public int getMiembros() {
+		return miembros;
+	}
+	public void setMiembros(int miembros) {
+		this.miembros = miembros;
+	}
+	public Festival getFestival() {
+		return festival;
+	}
+
+	public void setFestival(Festival fest) {
+		this.festival = fest;
+	}
+	
+	public String getActuacion() {
+		return actuacion;
+	}
+
+	public Actuacion getActuacionC() {
+		return actuacionC;
+	}
+	public void setActuacionC(Actuacion act) {
+		act.setGrupo(this);
+		this.actuacionC = act;
+	}
+	public void setActuacion(String actuacion) {
+		this.actuacion = actuacion;
+	}
+	
+	
+}

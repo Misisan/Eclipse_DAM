@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;mysql-connector-java-5.1.38-bin.jar&apos; to &apos;librerias&apos;&#x0D;&#x0A;- Original project: &apos;MathDice - Examen&apos;&#x0D;&#x0A;- Destination element: &apos;librerias&apos;&#x0D;&#x0A;- Original element: &apos;mysql-connector-java-5.1.38-bin.jar&apos;" description="Copy file" element1="lib/mysql-connector-java-5.1.38-bin.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1487359280873" target="/ProyetoX/librerias" units="0" version="1.0"/>
+</session>

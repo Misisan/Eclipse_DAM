@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-feb-2017 9:51:34 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="inicio.Festival" table="FESTIVAL">
+        <id name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+            <generator class="assigned" />
+        </id>
+        <property name="lugar" type="java.lang.String">
+            <column name="LUGAR" />
+        </property>
+        <property name="fecha" type="java.lang.String">
+            <column name="FECHA" />
+        </property>
+        <list name="grupos" inverse="true" table="GRUPO" cascade="save-update">
+            <key>
+                <column name="NOMBRE" />
+            </key>
+            <list-index column="ID_Festival"></list-index>
+            <one-to-many class="inicio.Grupo" />
+        </list>
+    </class>
+</hibernate-mapping>
